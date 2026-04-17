@@ -9,9 +9,8 @@
   <meta property="og:image" content="https://metacomicsolutions.github.io/profile/favicon.png">
   <meta property="og:url" content="https://metacomicsolutions.github.io/profile/">
   <meta property="og:type" content="website">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://metacomicsolutions.github.io/profile/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://metacomicsolutions.github.io/profile/favicon.png">
   <title>Free Website Design | Justin Neves</title>
 
   <!-- Poppins font -->
@@ -28,9 +27,8 @@
     body {
       font-family: 'Poppins', sans-serif;
       color: #fff;
-      /* dark tech abstract background — free unsplash image */
-background: linear-gradient(to bottom, #020206, rgba(2, 2, 6, 0.7), #020206), url('bg2.png') center/cover fixed;      background-size: cover;
-      back
+      background: linear-gradient(to bottom, #020206, rgba(2, 2, 6, 0.7), #020206), url('bg2.png') center/cover fixed;
+      background-size: cover;
       position: relative;
       min-height: 100vh;
     }
@@ -43,102 +41,12 @@ background: linear-gradient(to bottom, #020206, rgba(2, 2, 6, 0.7), #020206), ur
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(2, 2, 6, 0.75);  /* deep dark overlay */
+      background: rgba(2, 2, 6, 0.75);
       z-index: -1;
       pointer-events: none;
     }
 
-    /* ---------- COVER SCREEN (SPLASH) ---------- */
-    #cover-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('bg2.png') center center / cover no-repeat;
-      /* second image: tech/circuit mood */
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      transition: opacity 0.6s ease, visibility 0.6s;
-    }
-
-    /* overlay for cover to make text pop */
-    #cover-screen::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 10, 20, 0.7);
-      backdrop-filter: blur(3px);
-      z-index: 1;
-    }
-
-    .cover-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-      padding: 2rem;
-      animation: fadeIn 1s ease;
-    }
-
-    .cover-content h1 {
-      font-size: clamp(3rem, 10vw, 5.5rem);
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #f5c542;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-      margin-bottom: 0.5rem;
-    }
-
-    .cover-content p {
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: #eee;
-      margin-bottom: 2.5rem;
-      letter-spacing: 1px;
-    }
-
-    #begin-btn {
-      background: #f5c542;
-      color: #0b0b0d;
-      border: none;
-      padding: 18px 48px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      border-radius: 60px;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      transition: all 0.3s;
-      border: 2px solid transparent;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    #begin-btn:hover {
-      background: #ffde6b;
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(245, 197, 66, 0.3);
-    }
-
-    /* fade out cover */
-    #cover-screen.hidden-cover {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ---------- MAIN CONTAINER (transparent base) ---------- */
+    /* ---------- MAIN CONTAINER ---------- */
     .container {
       max-width: 1100px;
       margin: auto;
@@ -215,7 +123,7 @@ background: linear-gradient(to bottom, #020206, rgba(2, 2, 6, 0.7), #020206), ur
       margin-top: 80px;
     }
 
-    /* CARDS — semi-transparent to show bg */
+    /* CARDS */
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -262,7 +170,7 @@ background: linear-gradient(to bottom, #020206, rgba(2, 2, 6, 0.7), #020206), ur
       font-weight: bold;
     }
 
-    /* PROFILE SECTION (transparent card) */
+    /* PROFILE SECTION */
     .profile {
       background: rgba(17, 17, 20, 0.8);
       backdrop-filter: blur(10px);
@@ -344,29 +252,17 @@ background: linear-gradient(to bottom, #020206, rgba(2, 2, 6, 0.7), #020206), ur
       color: #aaa;
     }
 
-    /* responsive touches */
+    /* responsive */
     @media (max-width: 600px) {
       .hero-text h1 {
         font-size: 36px;
-      }
-      .cover-content h1 {
-        font-size: 3rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== COVER SCREEN / SPLASH WITH BEGIN BUTTON ===== -->
-  <div id="cover-screen">
-    <div class="cover-content">
-      <h1>JUSTIN NEVES</h1>
-      <p>free website design · portfolio builder</p>
-      <button id="begin-btn">BEGIN</button>
-    </div>
-  </div>
-
-  <!-- MAIN WEBSITE CONTENT (hidden behind cover until 'begin') -->
+  <!-- MAIN WEBSITE CONTENT — no cover screen, just the page -->
   <div class="container">
 
     <!-- HERO -->
@@ -380,7 +276,8 @@ background: linear-gradient(to bottom, #020206, rgba(2, 2, 6, 0.7), #020206), ur
         <p>
           I'm building my portfolio — you get a high-converting website at no cost.
         </p>
-        <a href="#" class="cta-btn">MESSAGE ME</a>
+        <!-- changed button text to "BEGIN" as requested -->
+        <a href="#" class="cta-btn">BEGIN</a>
         <div class="badges">
           <span>For my friends only</span>
           <span>📘 Facebook</span>
@@ -480,30 +377,6 @@ background: linear-gradient(to bottom, #020206, rgba(2, 2, 6, 0.7), #020206), ur
     </div>
   </div>
 
-  <!-- simple script to hide cover screen when 'begin' is clicked -->
-  <script>
-    (function() {
-      const cover = document.getElementById('cover-screen');
-      const beginBtn = document.getElementById('begin-btn');
-
-      // hide cover with smooth transition
-      function hideCover() {
-        cover.classList.add('hidden-cover');
-        // optional: enable body scroll if needed (already ok)
-      }
-
-      beginBtn.addEventListener('click', hideCover);
-
-      // (optional) if user wants to skip with ESC key? not required, but nice.
-      window.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && cover && !cover.classList.contains('hidden-cover')) {
-          hideCover();
-        }
-      });
-    })();
-  </script>
-
-  <!-- ensure images fallback (they are from original code, keep as is) -->
-  <!-- Background images are from Unsplash (free for use) -->
+  <!-- no cover screen, no extra JS — just the clean page -->
 </body>
 </html>
