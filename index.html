@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="Free website design offer by Justin.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Website Design | Justin Neves</title>
+
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ---------- BACKGROUND IMAGE (BODY) ---------- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      /* dark tech abstract background — free unsplash image */
+background: linear-gradient(to bottom, #020206, rgba(2, 2, 6, 0.7), #020206), url('bg2.png') center/cover fixed;      background-size: cover;
+      back
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* dark overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(2, 2, 6, 0.75);  /* deep dark overlay */
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* ---------- COVER SCREEN (SPLASH) ---------- */
+    #cover-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('bg2.png') center center / cover no-repeat;
+      /* second image: tech/circuit mood */
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: opacity 0.6s ease, visibility 0.6s;
+    }
+
+    /* overlay for cover to make text pop */
+    #cover-screen::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 20, 0.7);
+      backdrop-filter: blur(3px);
+      z-index: 1;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 2rem;
+      animation: fadeIn 1s ease;
+    }
+
+    .cover-content h1 {
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #f5c542;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+    }
+
+    .cover-content p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #eee;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    #begin-btn {
+      background: #f5c542;
+      color: #0b0b0d;
+      border: none;
+      padding: 18px 48px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 60px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+      border: 2px solid transparent;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #begin-btn:hover {
+      background: #ffde6b;
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(245, 197, 66, 0.3);
+    }
+
+    /* fade out cover */
+    #cover-screen.hidden-cover {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- MAIN CONTAINER (transparent base) ---------- */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+    }
+
+    .highlight {
+      color: #f5c542;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 50%;
+      border: 4px solid #f5c542;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      margin: 20px 0;
+      color: #ddd;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: #f5c542;
+      color: #000;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: #ffd95a;
+    }
+
+    .badges {
+      margin-top: 15px;
+    }
+
+    .badges span {
+      margin-right: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* SECTION */
+    .section {
+      margin-top: 80px;
+    }
+
+    /* CARDS — semi-transparent to show bg */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 250px;
+      background: rgba(20, 20, 23, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid rgba(245, 197, 66, 0.15);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .card.price {
+      border: 2px solid #f5c542;
+      background: rgba(30, 30, 36, 0.9);
+    }
+
+    .price-tag {
+      font-size: 32px;
+      margin: 10px 0;
+      color: #f5c542;
+    }
+
+    /* SERVICES */
+    .services ul {
+      list-style: none;
+    }
+
+    .services li {
+      margin-bottom: 12px;
+      color: #eee;
+      font-size: 1.1rem;
+    }
+
+    .services li::before {
+      content: "✔";
+      color: #f5c542;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    /* PROFILE SECTION (transparent card) */
+    .profile {
+      background: rgba(17, 17, 20, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+
+    .profile h2 {
+      margin-bottom: 10px;
+    }
+
+    .profile p {
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
+    .profile ul {
+      margin-top: 10px;
+    }
+
+    .profile li {
+      margin-bottom: 8px;
+      color: #ccc;
+    }
+
+    /* FOUNDER */
+    .founder {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .logo-box {
+      flex: 1;
+      min-width: 150px;
+      background: rgba(28, 28, 33, 0.8);
+      backdrop-filter: blur(5px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 20px 10px;
+      text-align: center;
+      border: 1px solid rgba(245, 197, 66, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .logo-box:hover {
+      transform: translateY(-5px);
+      background: rgba(40, 40, 48, 0.9);
+    }
+
+    .logo-img {
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      filter: drop-shadow(0 4px 6px black);
+    }
+
+    .logo-box span {
+      color: #f0e6d2;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+    }
+
+    .footer-note {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    /* responsive touches */
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 36px;
+      }
+      .cover-content h1 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== COVER SCREEN / SPLASH WITH BEGIN BUTTON ===== -->
+  <div id="cover-screen">
+    <div class="cover-content">
+      <h1>JUSTIN NEVES</h1>
+      <p>free website design · portfolio builder</p>
+      <button id="begin-btn">BEGIN</button>
+    </div>
+  </div>
+
+  <!-- MAIN WEBSITE CONTENT (hidden behind cover until 'begin') -->
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <img src="J-Neves.png" alt="Justin Profile" />
+      <div class="hero-text">
+        <h1>
+          I WILL DESIGN YOUR WEBSITE<br>
+          <span class="highlight">FOR FREE</span>
+        </h1>
+        <p>
+          I'm building my portfolio — you get a high-converting website at no cost.
+        </p>
+        <a href="#" class="cta-btn">MESSAGE ME</a>
+        <div class="badges">
+          <span>For my friends only</span>
+          <span>📘 Facebook</span>
+          <span>📸 Instagram</span>
+          <span>💬 WhatsApp</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARISON -->
+    <div class="section">
+      <h2>They charge this much...</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Basic</h3>
+          <div class="price-tag">$99+</div>
+        </div>
+        <div class="card">
+          <h3>Business</h3>
+          <div class="price-tag">$800+</div>
+        </div>
+        <div class="card price">
+          <h3>You Pay Me</h3>
+          <div class="price-tag">FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="section services">
+      <h2>What You Get</h2>
+      <ul>
+        <li>Custom modern design</li>
+        <li>Mobile responsive</li>
+        <li>Fast turnaround</li>
+        <li>SEO optimized</li>
+      </ul>
+    </div>
+
+    <!-- PROFILE / AUTHORITY -->
+    <div class="section profile">
+      <h2>Justin Barbosa Neves</h2>
+      <p><strong>Lead Product Architect | Systems Engineer</strong></p>
+      <p>Providence, RI</p>
+      <p>
+        High-impact Systems Architect specializing in Laravel ecosystems and AI-driven multilingual platforms.
+        Creator of scalable, production-ready systems used by real communities.
+      </p>
+
+      <h3 class="highlight">Core Expertise</h3>
+      <ul>
+        <li>Laravel 12, PHP 8.4, MySQL</li>
+        <li>Multi-tenant architecture</li>
+        <li>PWA & real-time systems</li>
+        <li>AI translation systems (45+ languages)</li>
+      </ul>
+
+      <h3 class="highlight">Key Project: Sistema Somos</h3>
+      <ul>
+        <li>1,900+ users platform</li>
+        <li>Real-time messaging & payments</li>
+        <li>Creole AI language system</li>
+        <li>Full system ownership (backend → deployment)</li>
+      </ul>
+
+      <h3 class="highlight">Languages</h3>
+      <p>English, Cape Verdean Creole, Portuguese, Spanish, French, Italian</p>
+
+      <!-- FOUNDER -->
+      <h3 class="highlight">Founder</h3>
+      <div class="founder">
+        <div class="logo-box">
+          <img src="somos-w.png" alt="Somos.cv logo" class="logo-img" />
+          <span>Somos.cv</span>
+        </div>
+        <div class="logo-box">
+          <img src="resiliente-w.png" alt="Resiliente.app logo" class="logo-img" />
+          <span>Resiliente.app</span>
+        </div>
+        <div class="logo-box">
+          <img src="avalanca-w.png" alt="Avalanca.com logo" class="logo-img" />
+          <span>Avalanca.com</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section cta">
+      <h2>
+        Limited Spots Available<br>
+        <span class="highlight">Message Me Today</span>
+      </h2>
+      <a href="#" class="cta-btn">GET STARTED</a>
+      <div class="footer-note">
+        *Free offer is for portfolio building only
+      </div>
+    </div>
+  </div>
+
+  <!-- simple script to hide cover screen when 'begin' is clicked -->
+  <script>
+    (function() {
+      const cover = document.getElementById('cover-screen');
+      const beginBtn = document.getElementById('begin-btn');
+
+      // hide cover with smooth transition
+      function hideCover() {
+        cover.classList.add('hidden-cover');
+        // optional: enable body scroll if needed (already ok)
+      }
+
+      beginBtn.addEventListener('click', hideCover);
+
+      // (optional) if user wants to skip with ESC key? not required, but nice.
+      window.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && cover && !cover.classList.contains('hidden-cover')) {
+          hideCover();
+        }
+      });
+    })();
+  </script>
+
+  <!-- ensure images fallback (they are from original code, keep as is) -->
+  <!-- Background images are from Unsplash (free for use) -->
+</body>
+</html>
